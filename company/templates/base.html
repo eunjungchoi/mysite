@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body>
+<h5><a href="{% url 'home' %}">Home</a></h5>
+<h5><a href="{% url 'people:index' %}">People</a></h5>
+<h5><a href="{% url 'jobs' %}">Jobs</a></h5><br>
+<h5><a href="{% url 'logout' %}">logout</a></h5>
+<h5><a href="{% url 'signupform' %}">sign up</a></h5>
+
+
+{% if user.is_authenticated %}Hello, {{ user.username }}.{% endif %}
+
+
+
+<!-- <h2><div align="right"> [ PEOPLE ] </div></h2> -->
+
+{% block content %}{% endblock %}
+
+<div>
+Footer : 회사소개 서비스소개
+이용약관
+개인정보취급방침
+보안 취약점 보고
+이메일 무단수집거부
+협업 제안
+도움말
+
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Add job postion, </h1>
+	
+<form action="/company/addjob/" method="post">
+{% csrf_token %}
+
+    company : {{ company_name }}<br>
+    title :<input type="text" name="title" id="title" value="" /><br><br>
+    position :<input type="text" name="position" id="position" value="" /><br><br>
+    job description : <textarea name="jd" id="jd"></textarea><br>
+    qualification : <textarea name="qualification" id="qualification"></textarea><br>
+    deadline :<input type="%Y-%m-%d" name="deadline" id="deadline" value="" /><br>
+    annual salary : <input type="text" name="salary" id="salary" value="" /><br>
+    <input type="hidden" name="company_id" value="{{ company_id }}" />
+
+
+<input type="submit" value="add" />
+</form>
+
+<a href="/company/{{company_id}}">취소</a>
+
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Position Index.</h1>
+
+<ul>	
+	{% for i in positions %}
+	<li><a href="/company/position/{{i}}/">{{ i }}</a></li>
+	{% endfor %}
+
+</ul>
+
+<a href="/company/people/">people 전체목록 보기</a>
+
+
+</body>
+</html>
+

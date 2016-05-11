@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Add members, here. </h1>
+
+<br><span>{{ company_name }}</span>
+
+<br>
+
+<form action="/company/addpeople/" method="post">
+{% csrf_token %}
+
+    people name :<input type="text" name="people_name" id="people_name" value="" />
+    position : <input type="text" name="people_position" id="people_position" value="" />
+    <input type="hidden" name="company_id" value="{{ company_id }}" />
+
+
+<input type="submit" value="add" />
+</form>
+
+<a href="/company/{{company_id}}">돌아가기</a>
+
+</body>
+</html>

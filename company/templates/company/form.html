@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Add companies, here. </h1>
+	
+<form action="/company/add/" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+
+    company name :<input type="text" name="company_name" id="company_name" value="" /><br><br>
+    company intro : <textarea name="company_intro" id="company_intro"></textarea><br>
+    company date :<input type="text" name="company_date" id="company_date" value="" /><br>
+    company homepage : <input type="text" name="company_homepage" id="company_homepage" value="" /><br>
+    company address : <input type="text" name="company_address" id="company_address" value="" /><br>
+    company phone : <input type="text" name="company_phone" id="company_phone" value="" /><br>
+    file : <input type="file" name="image"/>
+    <br>
+
+<input type="submit" value="add" />
+</form>
+
+<a href="/company/">돌아가기</a>
+
+</body>
+</html>

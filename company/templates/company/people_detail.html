@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+<body>
+<h2><div align="right"> [ PEOPLE ] </div></h2>
+<h1>{{ people.name }}</h1>
+<ul>
+	<li>소속 : <a href="/company/{{ people.company.id }}">{{ people.company.name }}</a></li>
+	<li>포지션 : <a href="/company/position/{{ people.position }}/">{{ people.position }}</a></li>
+</ul>
+
+<h3><span style="color:blue">work together with</span></h3>
+<ul>
+	{% for i in colleagues %}
+	<li><a href="/company/people/{{i.id}}">{{ i.name }}</a></li>
+	<li>{{ i.position }}</li>
+	<br>
+	{% endfor %}
+</ul>
+
+<a href="/company/editpeople/{{people_id}}">edit</a>
+
+<a href="/company/deletepeople/{{people_id}}">delete</a>
+<br>
+<a href="/company/people/">people 전체목록 보기</a>
+
+
+</body>
+</html>

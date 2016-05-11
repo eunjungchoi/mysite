@@ -1,0 +1,20 @@
+<html>
+<head>
+</head>
+<body>
+<h1>update people info</h1>
+	
+<form action="/company/editp/" method="post">
+{% csrf_token %}
+	<input type="hidden" name="people_id" value="{{ people.id }}" />
+    name :<input type="text" name="people_name" id="people_name" value="{{ people.name }}" />
+    position : <input type="text" name="people_position" id="people_position" value="{{ people.position }}" />
+
+<input type="submit" value="update" />
+</form>
+
+<a href="/company/people/{{people_id}}">돌아가기</a>
+
+</body>
+</html>
+

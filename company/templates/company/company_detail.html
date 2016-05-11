@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<html>
+<head>
+</head>
+<body>
+<h2><div align="right">
+  [ COMPANY ]
+</div></h2>
+<h1>{{ company.name }}</h1>
+<ul>
+	<li>소개 : <br>{{ company.intro }}</li><br>
+	<li>설립일 : {{ company.date|date:"Y-m-d" }}</li>
+	<li>홈페이지 : {{ company.homepage }}</li>
+	<li>주소 : {{ company.address }}</li>
+	<li>대표전화 : {{ company.phone }}</li>
+</ul>
+<img src="/{{ company.photo.url }}" width="100px" height="100px"/>
+<a href="/company/editform/{{company_id}}/">edit</a>
+<a href="/company/delete/{{company_id}}/">delete</a>
+
+<h2>Who works here?</h2>
+<ul>
+{% for i in people %}
+	<li><a href="{% url 'people:detail' i.id %}">{{ i.name }}</a></li>
+	
+	<li>포지션 :<a href="/company/position/{{ i.position }}/">{{ i.position }}</a></li>
+	<br>
+{% endfor %}
+</ul>
+<a href="/company/{{company_id}}/peopleform/">멤버 추가하기</a><br>
+
+<h2> job opening</h2>
+<ul>
+{% for i in jobs %}
+	<li>{{ i.title }}</li>
+	<li>{{ i.position }}</li>
+	<li>{{ i.jd }}</li>
+	<li>{{ i.qualification }}</li>
+	<li>{{ i.deadline }}</li>
+	<li>{{ i.salary }}</li>
+{% endfor %}
+</ul>
+
+
+<a href="/company/{{company_id}}/jobform/">채용 공고 내기</a><br>
+
+<a href="/company/">목록으로</a>
+
+</body>
+</html>

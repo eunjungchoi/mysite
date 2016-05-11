@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>The company index.</h1>
+<ul>	
+	{% for company in companies %}
+	<li><a href="/company/{{company.id}}">{{ company.name }}</a></li>
+	{% endfor %}
+
+</ul>
+<a href="/company/form/">추가하기</a>
+
+{% endblock %}

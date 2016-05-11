@@ -1,0 +1,30 @@
+<html>
+<head>
+</head>
+<body>
+<h5><a href="/company/"><-Home</a></h5>
+<h1>Jobs Index.</h1>
+
+<h3>직군별 보기</h3>
+
+
+
+
+<h3>전체보기</h3>
+
+<ul>	
+	{% for i in jobs %}
+	<li><a href="/company/jobs/{{ i.id }}">{{ i.title }}</a></li>
+	<li><a href="/company/{{ i.company.id }}">{{ i.company.name }}</a></li>
+	<li>{{ i.position }}</li>
+	<li>{{ i.deadline }}</li>
+	{% endfor %}
+
+</ul>
+
+
+
+</body>
+</html>
+
+

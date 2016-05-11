@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>People Index.</h1>
+
+<h3>직군별 보기</h3>
+
+<a href="/company/position/swengineer/">SW engineer</a>
+
+<a href="/company/position/marketer/">marketer</a>
+
+<a href="/company/position/barista/">barista</a>
+<br>
+<a href="/company/position/">...전체 포지션 보기 </a>
+
+
+
+<h3>전체보기</h3>
+
+<ul>	
+	{% for i in people %}
+	<li><a href="{% url 'people:detail' i.id %}">{{ i.name }}</a></li>
+	<li><a href="/company/{{i.company.id}}">{{ i.company.name }}</a></li>
+	<li>{{ i.position }}</li>
+	<br>
+	{% endfor %}
+
+</ul>
+{% endblock %}
+

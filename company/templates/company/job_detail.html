@@ -1,0 +1,38 @@
+<html>
+<head>
+</head>
+<body>
+<h2><div align="right"> [ Jobs ] </div></h2>
+
+<h1>{{ job.title }}</h1>
+<ul>	
+	<li><a href="/company/{{ job.company.id }}">{{ job.company.name }}</a></li>
+	<li>{{ job.position }}</li>
+	<li>{{ job.jb }}</li>
+	<li>{{ job.qualification }}</li>
+	<li>{{ job.deadline }}</li>
+	<li>{{ job.salary }}</li>
+	{% endfor %}
+
+</ul>
+	
+
+<h3><span style="color:blue">work together with</span></h3>
+<ul>
+	{% for i in colleagues %}
+	<li><a href="/company/people/{{i.id}}">{{ i.name }}</a></li>
+	<li>{{ i.position }}</li>
+	<br>
+	{% endfor %}
+</ul>
+
+
+<a href="/company/jobs/">채용 전체목록 보기</a>
+
+
+</body>
+</html>
+
+
+-------------
+
