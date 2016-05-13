@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+<title>
+	{% block title %}
+		Hangout places
+	{% endblock %} 
+</title>
+
+{% block sidebar %}
+{{ block.super }}
+
+<ul>
+	<li><a href="/hangout/">Hangout Places</a></li>
+</ul>
+{% endblock %}
+

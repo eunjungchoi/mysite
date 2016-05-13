@@ -1,0 +1,14 @@
+
+{% extends "base_hangout.html" %}
+
+{% block content %}
+	<h2> Let's hangout <h2>
+	<ul>
+		{% for modelname in object_list %}
+			{% with "hangout:"|add:modelname|lower|add:"_list" as urlvar %}
+			<li><a href="{% url urlvar %}">{{ modelname }}</a></li>
+			{% endwith %}
+		{% endfor %}
+	</ul>
+{% endblock content %}
+

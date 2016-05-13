@@ -1,0 +1,22 @@
+{% extends "base_hangout.html" %}
+
+{% block content %}
+<h1>{{ object.name }}</h1>
+<br>
+<ul>
+	<li> {{ object.city}} </li>
+	<li> {{ object.address }} </li>
+
+	<li> {{ object.intro }} </li>
+	<li> {{ object.category.name }} </li>
+	<li> 
+	{% if object.allday %}
+	Open : 24 hours
+	{% else %}
+	{% endif %} 
+	</li>
+	<li>Homepage : <a href="{{object.homepage}}">{{ object.homepage }}</a></li><br>
+	<li><img src="/{{ object.photo.url }}" width="520px" height="400px"/><li>
+</ul>
+
+{% endblock content %}

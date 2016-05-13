@@ -1,0 +1,10 @@
+{% extends "base_hangout.html" %}
+
+{% block content %}
+	<h2> Category List </h2>
+		<ul>
+			{% for category in object_list %}
+				<li><a href="{% url 'hangout:category_detail' category.id %}">{{ category.name }}</a></li>
+			{% endfor %}
+		</ul>
+{% endblock content %}

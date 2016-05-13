@@ -1,0 +1,13 @@
+{% extends "base_hangout.html" %}
+
+{% block content %}
+<h1>date : {{ object.date }}</h1>
+<br>
+<ul>
+	<li> place : {{ object.place}} </li>
+	<li> with {{ object.buddy}} </li>
+	<li> {{ object.comment }} </li>
+	<li><img src="/{{ object.photo.url }}" width="300px" height="200px"/><li>
+</ul>
+
+{% endblock content %}

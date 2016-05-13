@@ -15,19 +15,9 @@ from company.models import Company
 from company.models import People
 from company.models import Jobs
 
-#고쳐야 할 에러 
-# 1. time field. 자동으로 reformat되는데 업데이트할때 포맷이 안맞아 충돌이 남. input type  찾아봐야. 모델에 추가하면 안되고. 
-# 2. work with 에 본인도 같이 나오는 것. 
-# 3. list로 하되, 점은 안나오게 할 수 없나. 
-
-#해야 할 것 
-# 1. url 정리 : 'name'으로 
-
-#해결한 것
-# 1. QuerySet은 Sort()가 안됨. order_by()로 처리. 
 
 def index(request):
-	companies = Company.objects.all().order_by('name') #filter(name__contains='월')
+	companies = Company.objects.all().order_by('name')
 	context = {
 		'companies' : companies,
 	}
@@ -173,9 +163,7 @@ def peopleform(request, company_id):
 def addpeople(request):
 	c = People(company_id=request.POST['company_id'], name=request.POST['people_name'], position=request.POST['people_position'])
 	c.save()
-	#template = loader.get_template('company/addpeople.html') <= 이거 필요없는 부분 맞겠?
-	#context = {
-	#	'people_name' : request.POST['people_name']}
+
 	return HttpResponseRedirect("/company/" + str(request.POST['company_id']))
 
 def deletepeople(request, people_id):
@@ -200,16 +188,11 @@ def editp(request):
 	p.name = request.POST['people_name']
 	p.position = request.POST['people_position']
 	p.save()
-	#template = loader.get_template('company/editform.html')
-	#context = {
-	#	'company' : c,
-	#	'company_id': company_id
-	#}
-	#return HttpResponse(template.render(context, request))
+
 	return HttpResponseRedirect("/company/people/" + str(p.id))
 
 def position(request):
-	people = People.objects.all() #filter(name__contains='월')
+	people = People.objects.all()
 	positions = []
 	for i in people:
 		if i.position in positions:
@@ -251,45 +234,6 @@ def byposition(request, position_name):
 # 	}
 # 	return HttpResponse(template.render(context, request))
 
-# def barista(request):
-# 	people = People.objects.filter(position='barista')
-# 	one = people[0]
-# 	template = loader.get_template('company/positiongroup.html')
-# 	context = {
-# 		'people' : people,
-# 		'position' : one.position
-# 	}
-# 	return HttpResponse(template.render(context, request))
-
-# def ceo(request):
-# 	people = People.objects.filter(position='CEO')
-# 	one = people[0]
-# 	template = loader.get_template('company/positiongroup.html')
-# 	context = {
-# 		'people' : people,
-# 		'position' : one.position
-# 	}
-# 	return HttpResponse(template.render(context, request))
-
-# def cto(request):
-# 	people = People.objects.filter(position='CTO')
-# 	one = people[0]
-# 	template = loader.get_template('company/positiongroup.html')
-# 	context = {
-# 		'people' : people,
-# 		'position' : one.position
-# 	}
-# 	return HttpResponse(template.render(context, request))
-
-# def editor(request):
-# 	people = People.objects.filter(position='editor')
-# 	one = people[0]
-# 	template = loader.get_template('company/positiongroup.html')
-# 	context = {
-# 		'people' : people,
-# 		'position' : one.position
-# 	}
-# 	return HttpResponse(template.render(context, request))
 
 def jobs(request):
 	jobs = Jobs.objects.all()

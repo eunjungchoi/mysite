@@ -1,0 +1,10 @@
+{% extends "base_hangout.html" %}
+
+{% block content %}
+	<h2> Visit List </h2>
+		<ul>
+			{% for visit in object_list %}
+				<li><a href="{% url 'hangout:visit_detail' visit.id %}">{{ visit.date }}</a></li>
+			{% endfor %}
+		</ul>
+{% endblock content %}
