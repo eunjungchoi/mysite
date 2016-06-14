@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	{% load static %}
-	<link rel="stylesheet" href="{% static "admin/css/base.css" %}" />
+	<link rel="stylesheet" href="{% static "css/reset.css" %}" />
+	<!-- <link rel="stylesheet" href="{% static "admin/css/base.css" %}" /> -->
 	<title>
 		{% block title %}
 			snail the SW engineer
@@ -11,22 +12,28 @@
 </head>
 
 <body>
-	<div id = "sidebar">
+	<div id="header">
 		{% block sidebar %}
-		<ul>
+		<ul id="nav_main">
 			<!-- <li><a href="/">Project home></a></li> -->
 			<li><a href="/admin/">Admin</a></li>
 		</ul>
 		{% endblock %}
 		<br>
-
 	</div>
 
-	<div id = "content">
+	<div id="content">
 		{% block content %}
 		{% endblock %}
 	</div>
+
+	<div id="footer">
+		{% block footer %}
+		{% endblock %}
+	</div>
+<script>
+//window.location.href = "http://www.google.com"
+// document.
+</script>	
 </body>
 </html>
-
-

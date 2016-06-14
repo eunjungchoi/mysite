@@ -16,6 +16,11 @@ class Place(models.Model):
 	def __str__(self):
 		return self.name
 
+class PlacePhoto(models.Model):
+	place = models.ForeignKey(Place, on_delete=models.CASCADE)
+	photo = models.ImageField(upload_to='static/hangout')
+
+
 class City(models.Model):
 	name = models.CharField(max_length=30)
 	country = models.CharField(max_length=30)
