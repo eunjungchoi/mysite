@@ -10,7 +10,7 @@
 <h3><span style="color:blue">work together with</span></h3>
 <ul>
 	{% for i in colleagues %}
-	<li><a href="/company/people/{{i.id}}">{{ i.name }}</a></li>
+	<li><a href="/people/{{i.id}}">{{ i.name }}</a></li>
 	<li>{{ i.position }}</li>
 	<br>
 	{% empty %}
@@ -22,5 +22,5 @@
 
 <a href="/company/deletepeople/{{people_id}}">delete</a>
 <br>
-<a href="/company/people/">people 전체목록 보기</a>
+<a href="/people/">people 전체목록 보기</a>
 {% endblock %}

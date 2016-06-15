@@ -31,11 +31,12 @@ def log_in(request):
 	username = request.POST['username']
 	password = request.POST['password']
 	user = authenticate(username=username, password=password)
+	
 	if user is not None:
 		login(request, user)
 		return redirect('/company/')
 	else:
-		pass
+		return redirect('/company/')
 
 def log_out(request):
 	logout(request)
@@ -55,8 +56,9 @@ def signup(request):
 		
 @login_required
 def company_detail(request, company_id):
-	# if not request.user.is_authenticated():
-	# 	return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+	if not request.user.is_authenticated():
+		return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+		
 	c = Company.objects.get(pk=company_id) # SELECT * FROM Company WHERE id = '3';
 	people = People.objects.filter(company=c) # SELECT * FROM People WHERE company_id = '3';
 	j = Jobs.objects.filter(company_id=company_id)
@@ -99,6 +101,13 @@ def add(request):
 		photo=request.FILES['image'])
 
 	c.save()
+
+	companies = Company.objects.all().order_by('name')
+	context = {
+		'companies' : companies,
+	}
+
+	return render(request, 'company/index.html', context)
 
 	# handle_uploaded_file(request.FILES['image'], "company_" + str(c.id) + ".png")
 
@@ -224,15 +233,6 @@ def byposition(request, position_name):
 # 	}
 # 	return HttpResponse(template.render(context, request))
 
-# def marketer(request):
-# 	people = People.objects.filter(position='marketer')
-# 	one = people[0]
-# 	template = loader.get_template('company/positiongroup.html')
-# 	context = {
-# 		'people' : people,
-# 		'position' : one.position
-# 	}
-# 	return HttpResponse(template.render(context, request))
 
 
 def jobs(request):

@@ -12,7 +12,8 @@
 <h3><span style="color:blue">work together with</span></h3>
 <ul>
 	{% for i in colleagues %}
-	<li><a href="/company/people/{{i.id}}">{{ i.name }}</a></li>
+<!-- 	<li><a href="/company/people/{{i.id}}">{{ i.name }}</a></li>-->	
+ 	<li><a href="{% url 'people:detail' i.id %}">{{ i.name }}</a></li>
 	<li>{{ i.position }}</li>
 	<br>
 	{% endfor %}
@@ -27,3 +28,6 @@
 
 </body>
 </html>
+
+
+<li><a href="{% url 'people:detail' i.id %}">{{ i.name }}</a></li>

@@ -16,11 +16,11 @@ Including another URLconf
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from company import views
-
+from people import urls
 
 urlpatterns = [
-    url(r'^loginform/$', views.loginform, name='loginform'),
-    url(r'^login/$', views.log_in, name='login'),
+    url(r'^login/$', views.loginform, name='loginform'),
+    url(r'^loginform/$', views.log_in, name='login'),
 
     url(r'^logout/$', views.log_out, name='logout'),
     url(r'^signupform/$', views.signupform, name='signupform'),
@@ -34,9 +34,9 @@ urlpatterns = [
     
     url(r'^company/form/$', views.form, name='form'),
     url(r'^company/add/$', views.add, name='add'),
-    url(r'^company/delete/(?P<company_id>[0-9]+)$', views.delete, name='delete'),
+    url(r'^company/delete/(?P<company_id>[0-9]+)/$', views.delete, name='delete'),
     url(r'^company/edit/$', views.edit, name='edit'),
-    url(r'^company/editform/(?P<company_id>[0-9]+)$', views.editform, name='editform'),
+    url(r'^company/editform/(?P<company_id>[0-9]+)/$', views.editform, name='editform'),
     
     url(r'^company/addpeople/$', views.addpeople),
     url(r'^company/(?P<company_id>[0-9]+)/peopleform/$', views.peopleform, name='peopleform'),
@@ -53,8 +53,8 @@ urlpatterns = [
     url(r'^company/position/', include('company.urls')),
 
     url(r'^hangout/', include('hangout.urls', namespace='hangout')),
-    #url(r'^company/people/$', views.people, name='people'),
-    #url(r'^company/people/(?P<people_id>[0-9]+)$', views.people_detail),
+    #url(r'^company/people/$', people.views.people, name='people'),
+    #url(r'^company/people/(?P<people_id>[0-9]+)$', peopel.views.people_detail),
 
 
     url(r'^admin/', admin.site.urls)

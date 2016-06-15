@@ -5,7 +5,7 @@
 <h1>{{ position }}</h1>
 <ul>	
 	{% for i in people %}
-	<li><a href="/company/people/{{i.id}}">{{ i.name }}</a></li>
+	<li><a href="/people/{{i.id}}">{{ i.name }}</a></li>
 	<li><a href="/company/{{i.company.id}}">{{ i.company.name }}</a></li>
 	<li>{{ i.position }}</li>
 	<br>

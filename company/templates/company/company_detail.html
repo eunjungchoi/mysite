@@ -1,10 +1,13 @@
+
 {% load staticfiles %}
 <html>
+
 <head>
 </head>
+
 <body>
 <h2><div align="right">
-  [ COMPANY ]
+_company
 </div></h2>
 <h1>{{ company.name }}</h1>
 <ul>
@@ -13,18 +16,21 @@
 	<li>홈페이지 : {{ company.homepage }}</li>
 	<li>주소 : {{ company.address }}</li>
 	<li>대표전화 : {{ company.phone }}</li>
-	<li><img src="/{{ company.photo.url }}" width="300px" height="200px"/><li>
 </ul>
-<a href="/company/editform/{{company_id}}/">edit</a>
-<a href="/company/delete/{{company_id}}/">delete</a>
+<img src="/{{ company.photo.url }}" width="300px" height="200px"/>
+<br>
+
+<a href="/company/editform/{{company_id}}/">수정</a>
+<a href="/company/delete/{{company_id}}/">삭제</a>
 
 <h2>Who works here?</h2>
 <ul>
 {% for i in people %}
 	<li><a href="{% url 'people:detail' i.id %}">{{ i.name }}</a></li>
-	
-	<li>포지션 :<a href="/company/position/{{ i.position }}/">{{ i.position }}</a></li>
-	<br>
+	포지션 :<a href="/company/position/{{ i.position }}/">{{ i.position }}</a></li>
+<br>
+<br>
+
 {% endfor %}
 </ul>
 <a href="/company/{{company_id}}/peopleform/">멤버 추가하기</a><br>
@@ -42,7 +48,7 @@
 </ul>
 
 
-<a href="/company/{{company_id}}/jobform/">Job posting</a><br>
+<a href="/company/{{company_id}}/jobform/">채용공고 내기</a><br>
 
 <a href="/company/">목록으로</a>
 

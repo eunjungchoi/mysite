@@ -7,19 +7,17 @@
 <form action="/company/add/" method="post" enctype="multipart/form-data">
 {% csrf_token %}
 
-    company name :<input type="text" name="company_name" id="company_name" value="" /><br><br>
-    company intro : <textarea name="company_intro" id="company_intro"></textarea><br>
-    company date :<input type="text" name="company_date" id="company_date" value="" /><br>
-    company homepage : <input type="text" name="company_homepage" id="company_homepage" value="" /><br>
-    company address : <input type="text" name="company_address" id="company_address" value="" /><br>
-    company phone : <input type="text" name="company_phone" id="company_phone" value="" /><br>
-    file : <input type="file" name="image"/>
-    <br>
-
+    <li>company name :<input type="text" name="company_name" id="company_name" value="" /></li>
+    <li>company intro : <textarea name="company_intro" id="company_intro"></textarea></li>
+    <li>company date :<input type="text" name="company_date" id="company_date" value="" /></li>
+    <li>company homepage : <input type="text" name="company_homepage" id="company_homepage" value="" /></li>
+    <li>company address : <input type="text" name="company_address" id="company_address" value="" /></li>
+    <li>company phone : <input type="text" name="company_phone" id="company_phone" value="" /></li>
+    <li>file : <input type="file" name="image" id="image" value=""/></li>
 <input type="submit" value="add" />
 </form>
 
-<a href="/company/">돌아가기</a>
+<a href="/company/">취소</a>
 
 </body>
 </html>

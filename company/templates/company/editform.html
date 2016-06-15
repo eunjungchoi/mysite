@@ -2,23 +2,21 @@
 <head>
 </head>
 <body>
-<h1>update company info </h1>
+<h1>Update company info </h1>
 	
 <form action="/company/edit/" method="post">
 {% csrf_token %}
 	<input type="hidden" name="company_id" value="{{company.id}}" />
-    name :<input type="text" name="company_name" id="company_name" value="{{company.name}}" /><br>
-    intro : <textarea name="company_intro" id="company_intro">{{ company.intro }}</textarea><br>
-    date :<input type="text" name="company_date" id="company_date" value="{{ company.date|date:"Y-m-d" }}" /><br>
-    homepage : <input type="text" name="company_homepage" id="company_homepage" value="{{company.homepage}}" /><br>
-    address : <input type="text" name="company_address" id="company_address" value="company.address" /><br>
-    phone : <input type="text" name="company_phone" id="company_phone" value="company.phone" /><br>
+    <li>name :<input type="text" name="company_name" id="company_name" value="{{company.name}}" /></li>
+    <li>intro : <textarea name="company_intro" id="company_intro">{{ company.intro }}</textarea></li>
+    <li>date :<input type="text" name="company_date" id="company_date" value="{{ company.date|date:"Y-m-d" }}" /></li>
+    <li>homepage : <input type="text" name="company_homepage" id="company_homepage" value="{{company.homepage}}" /></li>
+    <li>address : <input type="text" name="company_address" id="company_address" value="company.address" /></li>
+    <li>phone : <input type="text" name="company_phone" id="company_phone" value="company.phone" /></li>
 <input type="submit" value="update" />
 </form>
 
-<br><span>{{ company_id }}</span>
-
-<a href="/company/{{company_id}}">돌아가기</a>
+<a href="/company/{{company_id}}">취소</a>
 
 </body>
 </html>

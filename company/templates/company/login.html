@@ -4,13 +4,13 @@
 <body>
 <h1>Log in </h1>
 	
-<form action="/login/" method="post">
+<form action="/loginform/" method="post">
 {% csrf_token %}
 
     ID :<input type="text" name="username" id="username" value="" /><br><br>
     Password :<input type="password" name="password" id="password" value="" /><br><br>    
 
-<input type="submit" value="add" />
+<input type="submit" value="Log in" />
 </form>
 
 <a href="/company/">돌아가기</a>
