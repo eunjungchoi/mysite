@@ -109,24 +109,7 @@ def add(request):
 
 	return render(request, 'company/index.html', context)
 
-	# handle_uploaded_file(request.FILES['image'], "company_" + str(c.id) + ".png")
-
-	# c.photo.name = "static/" + "company_" + str(c.id) + ".png"
-	# c.save()
-
-	# return render(request, 'company/debug.html', {"file": request.FILES['image']})
-
-	# context = {
-	# 	'company_name' : request.POST['company_name'],
-	# 	'company_intro' : request.POST['company_intro'],
-	# 	'company_date' : request.POST['company_date'],
-	# 	'company_homepage' : request.POST['company_homepage'],
-	# 	'company_address' : request.POST['company_address'],
-	# 	'company_phone' : request.POST['company_phone']
-	# }
-	# return HttpResponseRedirect("/company/" + str(c.id))
-	#template = loader.get_template('company/add.html')
-
+	
 def delete(request, company_id):
 	c = Company.objects.get(pk=company_id)
 	c.delete()
@@ -144,12 +127,7 @@ def edit(request):
 	c.phone = request.POST['company_phone']
 	c.save()
 	return HttpResponseRedirect("/company/" + str(c.id))
-	#template = loader.get_template('company/editform.html')
-	#context = {
-	#	'company' : c,
-	#	'company_id': company_id
-	#}
-	#return HttpResponse(template.render(context, request))
+	
 
 def editform(request, company_id):
 	c = Company.objects.get(pk=company_id)
@@ -222,17 +200,6 @@ def byposition(request, position_name):
 		'position' : position_name
 	}
 	return render(request, 'company/positiongroup.html', context)
-
-# def swengineer(request):
-# 	people = People.objects.filter(position='swengineer')
-# 	one = people[0]
-# 	template = loader.get_template('company/positiongroup.html')
-# 	context = {
-# 		'people' : people,
-# 		'position' : one.position
-# 	}
-# 	return HttpResponse(template.render(context, request))
-
 
 
 def jobs(request):

@@ -11,8 +11,8 @@
     <li>intro : <textarea name="company_intro" id="company_intro">{{ company.intro }}</textarea></li>
     <li>date :<input type="text" name="company_date" id="company_date" value="{{ company.date|date:"Y-m-d" }}" /></li>
     <li>homepage : <input type="text" name="company_homepage" id="company_homepage" value="{{company.homepage}}" /></li>
-    <li>address : <input type="text" name="company_address" id="company_address" value="company.address" /></li>
-    <li>phone : <input type="text" name="company_phone" id="company_phone" value="company.phone" /></li>
+    <li>address : <input type="text" name="company_address" id="company_address" value="{{company.address}}" /></li>
+    <li>phone : <input type="text" name="company_phone" id="company_phone" value="{{company.phone}}" /></li>
 <input type="submit" value="update" />
 </form>
 
